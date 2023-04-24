@@ -5,6 +5,5 @@
   ansible.builtin.systemd:
     name: rsyncd
     masked: true
-    enabled: false
-    daemon_reload: true
-    state: stopped
+    #enabled: false
+    #state: stopped
