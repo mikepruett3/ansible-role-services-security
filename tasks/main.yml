@@ -1,2 +1,17 @@
 ---
 # tasks file for ansible-role-services-security
+
+#- name: "Include OS-specific variables"
+#  ansible.builtin.include_vars:
+#    file: "{{ ansible_os_family }}.yaml"
+
+#- name: "Gather the package facts"
+#  ansible.builtin.package_facts:
+#    manager: auto
+#  when:
+#    - ansible_facts.packages is not defined
+
+- name: "Include tasks from rsync playbook"
+  ansible.builtin.include_tasks: rsync.yaml
+  #when:
+  #  - ansible_facts['os_family'] == 'RedHat'

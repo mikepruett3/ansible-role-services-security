@@ -1,0 +1,10 @@
+---
+# rsyncd tasks file for ansible-role-services-security
+
+- name: "Mask rsyncd daemon to prevent running"
+  ansible.builtin.systemd:
+    name: rsyncd
+    masked: true
+    enabled: false
+    daemon_reload: true
+    state: stopped
