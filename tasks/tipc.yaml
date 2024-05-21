@@ -1,7 +1,9 @@
 ---
 # tipc tasks file for ansible-role-services-security
 
-- name: "Ensure tipc kernel modules are disabled"
+- name: "Ensure kernel modules are disabled"
   ansible.builtin.template:
     src: module.j2
-    dest: "/etc/modprobe.d/tipc.conf"
+    dest: "/etc/modprobe.d/{{ item }}.conf"
+  with_items:
+    - tipc
